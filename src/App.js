@@ -1,5 +1,4 @@
-import logo from './logo.svg';
-import comingsoon from './comingsoon2.png'
+import comingsoon from './assets/comingsoon.png'
 import React, { useState, useEffect } from 'react';
 
 import './App.css';
