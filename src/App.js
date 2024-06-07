@@ -36,7 +36,10 @@ function App() {
                 Welcome to my portfolio! My name is Mahendra Chouhan. I am a full-stack developer by profession and an engineer at heart. I am passionate about building scalable web and mobile applications and enjoy tinkering with various systems in my free time.
               </Typography>
               <Typography variant="body1" paragraph>
-                My journey in programming began when I built my first application, a simple snake game, while I was still in school. Ever since then, I have been deeply in love with coding and software development. Currently, I am working as a software engineer at Google, where I continue to hone my skills and take on exciting challenges.
+                My journey in programming began when I built my first application, a simple snake game, while I was still in school.
+                Ever since then, I have been deeply in love with coding and software development.
+                I graduated from IIT BHU in 2014 with a Bachelor's degree and completed my M.Tech from IIT KGP in 2016.
+                Since last 4 years, I am working as a software engineer at Google, where I continue to hone my skills and take on exciting challenges.
               </Typography>
               <Typography variant="body1" paragraph>
                 This website serves as a platform for me to share my knowledge and foster a community of learners. Here, you will find regular posts about various topics, ranging from interesting reads to my personal thoughts and experiences in software engineering. My goal is to learn and grow together with you, as we strive to become better engineers and innovators.
