@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography, Button, Container, Box, Grid, Avatar, Link, Stack } from '@mui/material';
+import { Toolbar, Typography, Button, Container, Box, Grid, Avatar, Stack } from '@mui/material';
 import { Email, LinkedIn, RssFeed } from '@mui/icons-material';
 
 function App() {
