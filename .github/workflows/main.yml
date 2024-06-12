@@ -39,7 +39,7 @@ jobs:
       run: |
         npm install -g aws-cli
         aws s3 sync build/ s3://$S3_BUCKET_NAME --delete
-        
+
     - name: Invalidate CloudFront cache
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -47,4 +47,4 @@ jobs:
         AWS_REGION: ap-south-1
         DISTRIBUTION_ID: E3LQ59LLO0KK94
       run: |
-        aws cloudfront create-invalidation --distribution-id DISTRIBUTION_ID --paths "/*"
+        aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths "/*"
