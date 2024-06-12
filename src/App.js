@@ -61,53 +61,66 @@ function App() {
 
               <Typography variant="h6" gutterBottom>
                 Frameworks
+                <Grid container gutterBottom>
+                  <Grid item xs={12} sm={6}>
+                    <Typography variant="body1">
+                      <li>Angular</li>
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                    <Typography variant="body1">
+                      <li>Spring Boot</li>
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                    <Typography variant="body1">
+                      <li>Node.js</li>
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                    <Typography variant="body1">
+                      <li>Android</li>
+                    </Typography>
+                  </Grid>
+                </Grid>
               </Typography>
-              <Grid container spacing={1} gutterBottom>
-                <Grid item xs={12} sm={6}>
-                  <Typography variant="body1">
-                    <li>Angular</li>
-                  </Typography>
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <Typography variant="body1">
-                    <li>Spring Boot</li>
-                  </Typography>
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <Typography variant="body1">
-                    <li>Node.js</li>
-                  </Typography>
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <Typography variant="body1">
-                    <li>Android</li>
-                  </Typography>
-                </Grid>
-              </Grid>
-              <Typography variant="h6" gutterBottom>
+
+              <Typography variant="h6">
                 Experience
+                <Typography component="div">
+                  <ul>
+                    <li>
+                      <Typography variant="body1" component="span">
+                        <Link href="https://www.store.google.com" target="_blank" rel="noopener noreferrer">
+                          Google (4+ years)
+                        </Link>: Contributed and maintained gCMS, a content management system for Google Store e-commerce business.
+                      </Typography>
+                    </li>
+                    <li>
+                      <Typography variant="body1" component="span">
+                        <Link href="https://teenpattigold.com/" target="_blank" rel="noopener noreferrer">
+                          Moonfrog Labs (1.5 years)
+                        </Link>: Contributed and enhanced Teen Patti Gold, a real-time card game with over 3M daily users, as a fullstack engineer.
+                      </Typography>
+                    </li>
+                    <li>
+                      <Typography variant="body1" component="span">
+                        <Link href="https://olacabs.com/features" target="_blank" rel="noopener noreferrer">
+                          Ola Cabs (1 Year)
+                        </Link>: Contributed and Enhanced Ola play, as fullstack engineer, focusing on scalability and performance.
+                      </Typography>
+                    </li>
+                    <li>
+                      <Typography variant="body1" component="span">
+                        <Link href="https://www.appdynamics.com" target="_blank" rel="noopener noreferrer">
+                          AppDynamics (1 Year)
+                        </Link>: Contributed to DbMon, a database monitoring product by AppDynamics.
+                      </Typography>
+                    </li>
+                  </ul>
+                </Typography>
               </Typography>
-              <ul>
-                <li>
-                  <Link href="https://www.store.google.com" target="_blank" rel="noopener noreferrer">
-                    Google (4+ years)
-                  </Link>: Contributed and maintained gCMS, a content management system for Google Store e-commerce business.
-                </li>
-                <li>
-                  <Link href="https://teenpattigold.com/" target="_blank" rel="noopener noreferrer">
-                    Moonfrog Labs (1.5 years)
-                  </Link>: Contributed and enhanced Teen Patti Gold, a real-time card game with over 3M daily users, as a fullstack engineer.
-                </li>
-                <li>
-                  <Link href="https://olacabs.com/features">Ola Cabs(1 Year)</Link>:
-                  Contributed and Enhanced Ola play, as fullstack engineer, focusing on scalability and performance.
-                </li>
-                <li>
-                  <Link href="https://www.appdynamics.com" target="_blank" rel="noopener noreferrer">
-                    AppDynamics(1 Year)
-                  </Link>: Contributed to DbMon, a database monitoring product by AppDynamics.
-                </li>
-              </ul>
+
               <Stack spacing={2} direction="row">
                 <Button
                   variant="outlined" color="inherit"
