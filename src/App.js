@@ -1,5 +1,5 @@
 import React from 'react';
-import { Toolbar, Typography, Button, Container, Box, Grid, Avatar, Stack } from '@mui/material';
+import { Toolbar, Typography, Link, Button, Container, Box, Grid, Avatar, Stack } from '@mui/material';
 import { Email, LinkedIn, RssFeed } from '@mui/icons-material';
 
 function App() {
@@ -39,14 +39,75 @@ function App() {
                 My journey in programming began when I built my first application, a simple snake game, while I was still in school.
                 Ever since then, I have been deeply in love with coding and software development.
                 I graduated from IIT BHU in 2014 with a Bachelor's degree and completed my M.Tech from IIT KGP in 2016.
+              </Typography>
+              <Typography variant="body1" paragraph>
+                I hold 8+ years of software development experience in various leading software companies.
                 Since last 4 years, I am working as a software engineer at Google, where I continue to hone my skills and take on exciting challenges.
               </Typography>
-              <Typography variant="body1" paragraph>
-                This website serves as a platform for me to share my knowledge and foster a community of learners. Here, you will find regular posts about various topics, ranging from interesting reads to my personal thoughts and experiences in software engineering. My goal is to learn and grow together with you, as we strive to become better engineers and innovators.
+              <Typography variant="body1" paragraph gutterBottom>
+                If you’re looking for a dedicated professional to help you build robust mobile or web applications, feel free to reach out to me at <Link href="mailto:mchouhanofficial@gmail.com">mchouhanofficial@gmail.com</Link>.
               </Typography>
-              <Typography variant="body1" paragraph>
-                If you would like to get in touch, feel free to reach out to me at mchouhanofficial@gmail.com. Let's grow and improve together!
+              <Typography variant="h6" gutterBottom>
+                Skills
+                <Typography variant="body1">
+                  <ul>
+                    <li>Full-Stack Development</li>
+                    <li>Web Development</li>
+                    <li>Mobile Development</li>
+                    <li>Scalable Application Development</li>
+                  </ul>
+                </Typography>
               </Typography>
+
+              <Typography variant="h6" gutterBottom>
+                Frameworks
+              </Typography>
+              <Grid container spacing={1} gutterBottom>
+                <Grid item xs={12} sm={6}>
+                  <Typography variant="body1">
+                    <li>Angular</li>
+                  </Typography>
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <Typography variant="body1">
+                    <li>Spring Boot</li>
+                  </Typography>
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <Typography variant="body1">
+                    <li>Node.js</li>
+                  </Typography>
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <Typography variant="body1">
+                    <li>Android</li>
+                  </Typography>
+                </Grid>
+              </Grid>
+              <Typography variant="h6" gutterBottom>
+                Experience
+              </Typography>
+              <ul>
+                <li>
+                  <Link href="https://www.store.google.com" target="_blank" rel="noopener noreferrer">
+                    Google (4+ years)
+                  </Link>: Contributed and maintained gCMS, a content management system for Google Store e-commerce business.
+                </li>
+                <li>
+                  <Link href="https://teenpattigold.com/" target="_blank" rel="noopener noreferrer">
+                    Moonfrog Labs (1.5 years)
+                  </Link>: Contributed and enhanced Teen Patti Gold, a real-time card game with over 3M daily users, as a fullstack engineer.
+                </li>
+                <li>
+                  <Link href="https://olacabs.com/features">Ola Cabs(1 Year)</Link>:
+                  Contributed and Enhanced Ola play, as fullstack engineer, focusing on scalability and performance.
+                </li>
+                <li>
+                  <Link href="https://www.appdynamics.com" target="_blank" rel="noopener noreferrer">
+                    AppDynamics(1 Year)
+                  </Link>: Contributed to DbMon, a database monitoring product by AppDynamics.
+                </li>
+              </ul>
               <Stack spacing={2} direction="row">
                 <Button
                   variant="outlined" color="inherit"
