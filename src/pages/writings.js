@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Card, CardActionArea, CardMedia, CardContent, Grid } from '@mui/material';
+import { Typography, Card, CardActionArea, CardMedia, CardContent, Grid, Link } from '@mui/material';
 
 
 const FeaturedPost = ({ post }) => {
@@ -118,13 +118,13 @@ const posts = [
 const Writings = () => {
     return (
         <>
-            <Typography gutterBottom variant="h6" paragraph>
+            <Typography style={{ paddingBottom: '24px' }} variant="h6" paragraph>
                 I also write about software development in my free time. You can check out my blogs on{' '}
-                <Link href="https://medium.com/@mchouhanofficial" target="_blank" rel="noopener">
+                <Link href="https://medium.com/@mchouhanofficial" target="_blank">
                     Medium
                 </Link>{' '}
                 and{' '}
-                <Link href="https://www.enjoyalgorithms.com" target="_blank" rel="noopener">
+                <Link href="https://www.enjoyalgorithms.com" target="_blank">
                     EnjoyAlgorithms
                 </Link>.
             </Typography>
