@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route, Routes, Link as RouteLink, useLocation 
 import Writings from './pages/writings';
 import Projects from './pages/projects';
 import Home from './pages/home';
-
+import Blog from './components/blog/Blog';
 // import Tabs from '@mui/material/Tabs';
 // import Tab from '@mui/material/Tab';
 
@@ -23,6 +23,7 @@ function App() {
           <Tab label="Home" component={RouteLink} to="/" value="/" />
           <Tab label="Writings" component={RouteLink} to="/writings" value="/writings" />
           <Tab label="Projects" component={RouteLink} to="/projects" value="/projects" />
+          <Tab label="Blogs" component={RouteLink} to="/blogs" value="/blogs" />
         </Tabs>
       </Toolbar>
       <hr />
@@ -31,6 +32,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/writings" element={<Writings />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/blogs" element={<Blog />} />
         </Routes>
       </Box>
     </Container>
