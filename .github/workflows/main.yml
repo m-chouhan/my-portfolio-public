@@ -82,7 +82,7 @@ jobs:
     - name: Upload package to EC2
       run: |
         echo "Uploading package to EC2"
-        scp backend.zip ec2-user@ec2-65-0-134-114.ap-south-1.compute.amazonaws.com:/home/ec2-user/ || { echo "SCP failed"; exit 1; }
+        scp -o StrictHostKeyChecking=no backend.zip ec2-user@ec2-65-0-134-114.ap-south-1.compute.amazonaws.com:/home/ec2-user/ || { echo "SCP failed"; exit 1; }
   
     - name: Deploy and run backend
       run: |
