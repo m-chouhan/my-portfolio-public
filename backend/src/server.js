@@ -3,7 +3,7 @@ const app = express();
 const port = 8080;
 
 app.get('/', (req, res) => {
-    res.send('Hello from the backend *updated*!');
+    res.send('Hello After CI/CD correctly setup!');
 });
 
 app.listen(port, () => {
