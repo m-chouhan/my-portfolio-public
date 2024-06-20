@@ -86,9 +86,5 @@ jobs:
   
     - name: Deploy and run backend
       run: |
-        echo "Deploying and running backend"
-        ssh ec2-user@ec2-65-0-134-114.ap-south-1.compute.amazonaws.com << 'EOF'
-          unzip -o /home/ec2-user/backend.zip -d /home/ec2-user/backend
-          cd /home/ec2-user/backend
-          pm2 restart all || pm2 start src/server.js
-        EOF || { echo "SSH command failed"; exit 1; }
+        echo "Restarting Services"
+        cat cloud/ec2RestartScript.sh | ssh ec2-user@ec2-65-0-134-114.ap-south-1.compute.amazonaws.com || { echo "SSH command failed"; exit 1; }
