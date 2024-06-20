@@ -14,3 +14,4 @@ if [ "$STATUS" == "online" ]; then
 else
     echo "PM2 restart failed with $STATUS"
     exit 1
+fi
