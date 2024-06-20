@@ -7,7 +7,7 @@ on:
       - main
       
 jobs:
-  build:
+  deploy-frontend:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,7 +23,7 @@ jobs:
         node-version: '20'
         
     - name: Install dependencies
-      run: npm install
+      run: npm ci
       working-directory: frontend
 
     - name: Build the React app
@@ -41,7 +41,7 @@ jobs:
       run: |
         npm install -g aws-cli
         aws s3 sync build/ s3://$S3_BUCKET_NAME --delete
-       working-directory: frontend
+      working-directory: frontend
 
     - name: Invalidate CloudFront cache
       env:
@@ -51,3 +51,44 @@ jobs:
         DISTRIBUTION_ID: E3LQ59LLO0KK94
       run: |
         aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths "/*"
+
+  deploy-backend:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Starting Deployment
+      run : echo "Starting Deployment"
+      
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+        
+    - name: Install dependencies
+      run: npm ci
+      working-directory: backend
+    
+    - name: Package application
+      run: zip -r backend.zip backend/
+
+    - name: Configure SSH
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
+      
+    - name: Upload package to EC2
+      run: |
+        echo "Uploading package to EC2"
+        scp backend.zip ec2-user@ec2-65-0-134-114.ap-south-1.compute.amazonaws.com:/home/ec2-user/ || { echo "SCP failed"; exit 1; }
+  
+    - name: Deploy and run backend
+      run: |
+        echo "Deploying and running backend"
+        ssh ec2-user@ec2-65-0-134-114.ap-south-1.compute.amazonaws.com << 'EOF'
+          unzip -o /home/ec2-user/backend.zip -d /home/ec2-user/backend
+          cd /home/ec2-user/backend
+          pm2 restart all || pm2 start src/server.js
+        EOF || { echo "SSH command failed"; exit 1; }
