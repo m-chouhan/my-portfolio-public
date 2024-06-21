@@ -1,12 +1,21 @@
-const express = require('express');
-const cors = require('cors');
-const dotenv = require('dotenv');
+import express from 'express';
+import cors from 'cors';
+import helmet from 'helmet';
+import winston from 'winston';
+import dotenv from 'dotenv';
 
+// setup enviornment variables
 const env = process.env.NODE_ENV || 'development';
 dotenv.config({ path: `.env.${env}` });
-
-const PORT = process.env.PORT;
-const FRONTEND_URL = process.env.FRONTEND_URL;
+// Setup logger
+const logger = winston.createLogger({
+    level: 'info',
+    format: winston.format.json(),
+    transports: [
+        new winston.transports.Console(),
+        new winston.transports.File({ filename: 'npm-debug.log' }),
+    ],
+});
 
 const posts = [
     {
@@ -84,20 +93,28 @@ const posts = [
 
 const app = express();
 
-// Configure CORS
+// Security middlewares
+app.use(helmet());
 app.use(cors({
-    origin: FRONTEND_URL, // Allow only your frontend domain
+    origin: process.env.FRONTEND_URL, // Allow only your frontend domain
     optionsSuccessStatus: 200, // Some legacy browsers choke on 204
 }));
 
+// Logging middlewares
+app.use((req, res, next) => {
+    logger.info(`${req.method} ${req.url}`);
+    next();
+});
+
 app.get('/', (req, res) => {
-    res.send('Hello After CI/CD correctly setup!');
+    const now = new Date();
+    res.send(`Hello there, the current time is : ${now.toString()}!`);
 });
 
 app.get('/api/blogs', (req, res) => {
     res.send(posts);
 });
 
-app.listen(PORT, () => {
-    console.log(`Server listening at ${PORT}, allowed origin : ${FRONTEND_URL}`);
+app.listen(process.env.PORT, () => {
+    logger.info(`Server listening at ${process.env.PORT}, allowed origin : ${process.env.FRONTEND_URL}`);
 });
