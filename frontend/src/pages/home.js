@@ -1,6 +1,6 @@
 import React from 'react';
-import { Toolbar, Typography, Link, Button, Container, Box, Grid, Avatar, Stack, Tabs, Tab } from '@mui/material';
-import { Email, LinkedIn, RssFeed } from '@mui/icons-material';
+import { Typography, Link, Button, Grid, Avatar, Stack } from '@mui/material';
+import { LinkedIn, RssFeed } from '@mui/icons-material';
 
 const Home = () => {
     return (
