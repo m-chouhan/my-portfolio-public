@@ -7,6 +7,7 @@ import dotenv from 'dotenv';
 // setup enviornment variables
 const env = process.env.NODE_ENV || 'development';
 dotenv.config({ path: `.env.${env}` });
+
 // Setup logger
 const logger = winston.createLogger({
     level: 'info',
@@ -102,7 +103,11 @@ app.use(cors({
 
 // Logging middlewares
 app.use((req, res, next) => {
-    logger.info(`${req.method} ${req.url}`);
+    logger.info({
+        method: req.method,
+        url: req.url,
+        timestamp: new Date().toISOString(),
+    });
     next();
 });
 
