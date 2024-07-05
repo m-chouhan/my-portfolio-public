@@ -5,10 +5,25 @@ on:
   push:
     branches:
       - main
-    paths:
-      - backend/**
 
 jobs:
+
+  retrieve-key:
+    runs-on: ubuntu-latest    
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v2
+
+    - name: Save private key to file
+      run: echo "${{ secrets.EC2_SSH_KEY }}" > private-key.pem
+      shell: bash
+
+    - name: Upload private key artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: private-key
+        path: private-key.pem
+        
   deploy-backend:
     runs-on: ubuntu-latest
 
@@ -30,9 +45,6 @@ jobs:
       
     - name: Package application
       run: zip -r backend.zip backend/
-
-    - name: Print secret key
-      run: echo "${{ secrets.EC2_SSH_KEY }}"
       
     - name: Configure SSH
       uses: webfactory/ssh-agent@v0.5.3
