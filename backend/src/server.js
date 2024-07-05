@@ -113,7 +113,7 @@ app.use((req, res, next) => {
 
 app.get('/', (req, res) => {
     const now = new Date();
-    res.send(`Hello there, the current time is : ${now.toString()}!`);
+    res.send(`Hello from Api Server, the current time is : ${now.toString()}!`);
 });
 
 app.get('/api/blogs', (req, res) => {
