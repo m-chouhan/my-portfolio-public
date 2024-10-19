@@ -30,10 +30,10 @@ const Home = () => {
           my M.Tech from IIT KGP in 2016.
         </Typography>
         <Typography variant="body1" paragraph>
-          I hold 8+ years of software development experience in various leading
-          software companies. Since last 4 years, I am working as a software
-          engineer at Atlassain, where I continue to hone my skills and take on
-          exciting challenges.
+          I have 8+ years of software development experience across leading tech
+          companies. I worked at Google for over four years and am currently a
+          Software Engineer at Atlassian, where I continue to hone my skills and
+          tackle exciting challenges.
         </Typography>
         <Typography variant="body1" paragraph gutterBottom>
           If you’re looking for a dedicated professional to help you build
