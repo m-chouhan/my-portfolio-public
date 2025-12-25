@@ -3,8 +3,16 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 COPY . .
-ARG REACT_APP_API_URL=http://localhost:3001/api
-ENV REACT_APP_API_URL=$REACT_APP_API_URL
+ARG NODE_ENV=development
+RUN echo "Building with NODE_ENV=${NODE_ENV}" && \
+    if [ -f ".env.${NODE_ENV}" ]; then \
+      echo "Copying .env.${NODE_ENV} to .env" && \
+      cp ".env.${NODE_ENV}" .env && \
+      echo "Contents of .env:" && \
+      cat .env; \
+    else \
+      echo "WARNING: .env.${NODE_ENV} not found!"; \
+    fi
 RUN npm run build
 
 FROM nginx:alpine
