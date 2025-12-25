@@ -1,0 +1,49 @@
+name: Deploy to Cloud Server
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - backend/**
+      - frontend/**
+      - docker-compose.prod.yml
+      - Dockerfile
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Build Images with Docker Compose
+      run: |
+        docker compose -f docker-compose.prod.yml build
+    
+    - name: Package Images and Config
+      run: |
+        docker save portfolio-backend:latest portfolio-frontend:latest -o portfolio.tar
+        tar -czf deploy.tar.gz portfolio.tar docker-compose.prod.yml
+    
+    - name: Configure SSH
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.CLOUD_SSH_KEY }}
+    
+    - name: Transfer Package to Server
+      run: |
+        scp -o StrictHostKeyChecking=no deploy.tar.gz root@${{ secrets.CLOUD_IP }}:~/
+    
+    - name: Deploy on Server
+      run: |
+        ssh -o StrictHostKeyChecking=no root@${{ secrets.CLOUD_IP }} << 'EOF'
+          tar -xzf deploy.tar.gz
+          docker load -i portfolio.tar
+          docker compose -f docker-compose.prod.yml down 2>/dev/null || true
+          docker compose -f docker-compose.prod.yml up -d
+          rm -f deploy.tar.gz portfolio.tar docker-compose.prod.yml
+          docker image prune -f
+        EOF
