@@ -17,7 +17,7 @@ services:
     image: portfolio-frontend:latest
     platform: linux/amd64
     ports:
-      - "${FRONTEND_PORT:-80}:80"
+      - "${FRONTEND_PORT:-3000}:80"
     depends_on:
       - backend
     restart: always
