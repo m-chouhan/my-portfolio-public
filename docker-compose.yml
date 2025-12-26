@@ -12,10 +12,9 @@ services:
   frontend:
     build:
       context: ./frontend
-      args:
-        - NODE_ENV=development
+      target: development
     ports:
-      - "${FRONTEND_PORT:-3000}:80"
+      - "${FRONTEND_PORT:-3000}:3000"
     depends_on:
       - backend
 
