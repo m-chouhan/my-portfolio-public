@@ -44,6 +44,5 @@ jobs:
           docker load -i portfolio.tar
           docker compose -f docker-compose.prod.yml down 2>/dev/null || true
           docker compose -f docker-compose.prod.yml up -d
-          rm -f deploy.tar.gz portfolio.tar docker-compose.prod.yml
           docker image prune -f
         EOF

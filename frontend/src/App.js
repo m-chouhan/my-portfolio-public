@@ -13,7 +13,7 @@ function App() {
     <Container>
       <Toolbar disableGutters sx={{ paddingLeft: 0, paddingRight: 0 }}>
         <Typography variant="title" sx={{ flexGrow: 1 }}>
-          Mahendra's Portfolio
+          Mahendra's Portfolio - Testing
         </Typography>
         <Tabs value={location.pathname} textColor="inherit" indicatorColor="primary">
           <Tab label="Home" component={RouteLink} to="/" value="/" />
