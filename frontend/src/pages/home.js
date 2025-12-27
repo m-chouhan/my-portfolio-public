@@ -46,33 +46,16 @@ const Home = () => {
       {/* Hero Section */}
       <Grid container spacing={6} alignItems="center" sx={{ mb: 12 }}>
         <Grid item xs={12} md={5} order={{ xs: 1, md: 2 }}>
-          <Box 
-            sx={{ 
-              position: 'relative',
-              '&::before': {
-                content: '""',
-                position: 'absolute',
-                top: 20,
-                left: 20,
-                right: -20,
-                bottom: -20,
-                border: '2px solid #000',
-                zIndex: 0,
-                borderRadius: '50% 50% 0 0'
-              }
-            }}
-          >
+          <Box sx={{ maxWidth: 400, mx: 'auto' }}>
             <Avatar
               alt="Mahendra Chouhan"
               src="/logo.jpg"
               sx={{ 
                 width: '100%', 
-                height: 'auto', 
+                height: 'auto',
                 aspectRatio: '1/1',
-                borderRadius: '50% 50% 0 0',
+                borderRadius: '50%',
                 border: '1px solid #000',
-                position: 'relative',
-                zIndex: 1,
                 bgcolor: '#f5f5f5'
               }}
             />
@@ -165,7 +148,7 @@ const Home = () => {
             company="Atlassian"
             role="Senior Software Engineer (P50) | Backend"
             duration="June 2024 – Present"
-            description="Leading AI agent development for Jira Service Management handling 10k daily queries, improving resolution rates by 5% through enterprise integrations."
+            description="Leading AI agent development for Jira Service Management handling 10k daily queries, helped improving resolution rates by 5% through enterprise integrations."
           />
           <ExperienceItem 
             company="Google"
