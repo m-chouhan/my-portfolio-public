@@ -23,17 +23,16 @@ const Home = () => {
           enjoy tinkering with various systems in my free time.
         </Typography>
         <Typography variant="body1" paragraph>
-          My journey in programming began when I built my first application, a
-          simple snake game, while I was still in school. Ever since then, I
-          have been deeply in love with coding and software development. I
-          graduated from IIT BHU in 2014 with a Bachelor's degree and completed
-          my M.Tech from IIT KGP in 2016.
+          My journey in programming began with a simple snake game built in a
+          school computer lab. That spark turned into a lifelong obsession with
+          how code can solve real-world problems. Today, with over 9 years of
+          experience at companies like Google and Atlassian, that same curiosity
+          drives me to build systems that handle massive scale without losing
+          sight of the end-user experience.
         </Typography>
         <Typography variant="body1" paragraph>
-          I have 8+ years of software development experience across leading tech
-          companies. I worked at Google for over four years and am currently a
-          Software Engineer at Atlassian, where I continue to hone my skills and
-          tackle exciting challenges.
+          I specialize in bridging the gap between complex, high-performance
+          backend architecture and seamless, intuitive front-end interfaces.
         </Typography>
         <Typography variant="body1" paragraph gutterBottom>
           If you’re looking for a dedicated professional to help you build
@@ -44,47 +43,29 @@ const Home = () => {
           .
         </Typography>
         <Typography variant="h6" gutterBottom>
-          Skills
+          Tech Stack
           <Typography variant="body1">
-            <ul>
-              <li>Full-Stack Development</li>
-              <li>Web Development</li>
-              <li>Mobile Development</li>
-              <li>Scalable Application Development</li>
-            </ul>
+            Kotlin, Java, TypeScript, React, AWS, DynamoDB, Spanner, Node.js
           </Typography>
-        </Typography>
-
-        <Typography variant="h6" gutterBottom>
-          Frameworks
-          <Grid container gutterBottom>
-            <Grid item xs={12} sm={6}>
-              <Typography variant="body1">
-                <li>Angular</li>
-              </Typography>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <Typography variant="body1">
-                <li>Spring Boot</li>
-              </Typography>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <Typography variant="body1">
-                <li>Node.js</li>
-              </Typography>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <Typography variant="body1">
-                <li>Android</li>
-              </Typography>
-            </Grid>
-          </Grid>
         </Typography>
 
         <Typography variant="h6">
           Experience
           <Typography component="div">
             <ul>
+              <li>
+                <Typography variant="body1" component="span">
+                  <Link
+                    href="https://www.atlassian.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Atlassian (1.5+ years)
+                  </Link>
+                  : Currently working as a Senior Software Engineer, focusing on
+                  building scalable web applications and enhancing user experiences.
+                </Typography>
+              </li>
               <li>
                 <Typography variant="body1" component="span">
                   <Link
@@ -135,6 +116,24 @@ const Home = () => {
                   </Link>
                   : Contributed to DbMon, a database monitoring product by
                   AppDynamics.
+                </Typography>
+              </li>
+            </ul>
+          </Typography>
+        </Typography>
+
+        <Typography variant="h6" gutterBottom>
+          Education
+          <Typography component="div">
+            <ul>
+              <li>
+                <Typography variant="body1">
+                  M.Tech, Computer Science – IIT Kharagpur (2016)
+                </Typography>
+              </li>
+              <li>
+                <Typography variant="body1">
+                  B.Tech, Electronics – IIT BHU (2014)
                 </Typography>
               </li>
             </ul>
