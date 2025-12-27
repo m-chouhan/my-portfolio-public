@@ -42,8 +42,8 @@ const app = express();
 // Security middlewares
 app.use(helmet());
 app.use(cors({
-    origin: process.env.FRONTEND_URL, // Allow only your frontend domain
-    optionsSuccessStatus: 200, // Some legacy browsers choke on 204
+    origin: process.env.FRONTEND_URL || 'http://localhost:3000', // Allow frontend domain or localhost fallback
+    optionsSuccessStatus: 200, 
 }));
 
 // Logging middlewares
@@ -62,11 +62,15 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api/blogs', async (req, res) => {
-    const posts = await fetchMediumPostsFromRSS();
-    res.send(posts);
-    // res.send(posts);
+    try {
+        const posts = await fetchMediumPostsFromRSS();
+        res.send(posts);
+    } catch (error) {
+        logger.error('Error fetching blogs:', error);
+        res.status(500).send({ error: 'Failed to fetch blogs' });
+    }
 });
 
-app.listen(process.env.PORT, () => {
-    logger.info(`Server listening at ${process.env.PORT}, allowed origin : ${process.env.FRONTEND_URL}`);
+app.listen(process.env.PORT || 3001, () => {
+    logger.info(`Server listening at ${process.env.PORT || 3001}, allowed origin : ${process.env.FRONTEND_URL || 'http://localhost:3000'}`);
 });

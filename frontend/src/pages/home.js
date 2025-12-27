@@ -1,167 +1,201 @@
 import React from "react";
-import { Typography, Link, Button, Grid, Avatar, Stack } from "@mui/material";
-import { LinkedIn, RssFeed } from "@mui/icons-material";
+import { 
+  Typography, 
+  Button, 
+  Grid, 
+  Avatar, 
+  Stack, 
+  Box, 
+  Chip,
+  Container, 
+  Divider
+} from "@mui/material";
+import { LinkedIn, Article, ArrowForward } from "@mui/icons-material";
+
+const TechChip = ({ label }) => (
+  <Chip 
+    label={label} 
+    variant="outlined" 
+    sx={{ 
+      mr: 1, 
+      mb: 1, 
+      border: '1px solid #e0e0e0',
+      borderRadius: '4px',
+      '&:hover': { borderColor: '#000', backgroundColor: 'transparent' }
+    }} 
+  />
+);
+
+const ExperienceItem = ({ company, role, duration, description, link }) => (
+  <Box sx={{ mb: 4, position: 'relative', pl: 3, borderLeft: '2px solid #f0f0f0', '&:hover': { borderLeft: '2px solid #000' }, transition: 'all 0.3s' }}>
+    <Typography variant="h6" sx={{ color: '#000', mb: 0.5 }}>
+      {company}
+    </Typography>
+    <Typography variant="subtitle2" sx={{ color: '#666', mb: 1, fontStyle: 'italic' }}>
+      {role} • {duration}
+    </Typography>
+    <Typography variant="body2" color="text.secondary">
+      {description}
+    </Typography>
+  </Box>
+);
 
 const Home = () => {
   return (
-    <Grid container spacing={2} alignItems="center">
-      <Grid item xs={8} md={8}>
-        <Avatar
-          alt="Mahendra Chouhan"
-          src="/logo.jpg"
-          sx={{ width: 400, height: 400, mx: "auto" }}
-        />
-      </Grid>
-      <Grid item xs={12} md={8}>
-        <Typography variant="h6" component="h1" gutterBottom>
-          Hello, I'm Mahendra Chouhan
-        </Typography>
-        <Typography variant="body1" paragraph>
-          Welcome to my portfolio! My name is Mahendra Chouhan. I am a
-          full-stack developer by profession and an engineer at heart. I am
-          passionate about building scalable web and mobile applications and
-          enjoy tinkering with various systems in my free time.
-        </Typography>
-        <Typography variant="body1" paragraph>
-          My journey in programming began with a simple snake game built in a
-          school computer lab. That spark turned into a lifelong obsession with
-          how code can solve real-world problems. Today, with over 9 years of
-          experience at companies like Google and Atlassian, that same curiosity
-          drives me to build systems that handle massive scale without losing
-          sight of the end-user experience.
-        </Typography>
-        <Typography variant="body1" paragraph>
-          I specialize in bridging the gap between complex, high-performance
-          backend architecture and seamless, intuitive front-end interfaces.
-        </Typography>
-        <Typography variant="body1" paragraph gutterBottom>
-          If you’re looking for a dedicated professional to help you build
-          robust mobile or web applications, feel free to reach out to me at{" "}
-          <Link href="mailto:mchouhanofficial@gmail.com">
-            mchouhanofficial@gmail.com
-          </Link>
-          .
-        </Typography>
-        <Typography variant="h6" gutterBottom>
-          Tech Stack
-          <Typography variant="body1">
-            Kotlin, Java, TypeScript, React, AWS, DynamoDB, Spanner, Node.js
-          </Typography>
-        </Typography>
-
-        <Typography variant="h6">
-          Experience
-          <Typography component="div">
-            <ul>
-              <li>
-                <Typography variant="body1" component="span">
-                  <Link
-                    href="https://www.atlassian.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Atlassian (1.5+ years)
-                  </Link>
-                  : Currently working as a Senior Software Engineer, focusing on
-                  building scalable web applications and enhancing user experiences.
-                </Typography>
-              </li>
-              <li>
-                <Typography variant="body1" component="span">
-                  <Link
-                    href="https://www.store.google.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Google (4+ years)
-                  </Link>
-                  : Contributed and maintained gCMS, a content management system
-                  for Google Store e-commerce business.
-                </Typography>
-              </li>
-              <li>
-                <Typography variant="body1" component="span">
-                  <Link
-                    href="https://teenpattigold.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Moonfrog Labs (1.5 years)
-                  </Link>
-                  : Contributed and enhanced Teen Patti Gold, a real-time card
-                  game with over 3M daily users, as a fullstack engineer.
-                </Typography>
-              </li>
-              <li>
-                <Typography variant="body1" component="span">
-                  <Link
-                    href="https://olacabs.com/features"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Ola Cabs (1 Year)
-                  </Link>
-                  : Contributed and Enhanced Ola play, as fullstack engineer,
-                  focusing on scalability and performance.
-                </Typography>
-              </li>
-              <li>
-                <Typography variant="body1" component="span">
-                  <Link
-                    href="https://www.appdynamics.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    AppDynamics (1 Year)
-                  </Link>
-                  : Contributed to DbMon, a database monitoring product by
-                  AppDynamics.
-                </Typography>
-              </li>
-            </ul>
-          </Typography>
-        </Typography>
-
-        <Typography variant="h6" gutterBottom>
-          Education
-          <Typography component="div">
-            <ul>
-              <li>
-                <Typography variant="body1">
-                  M.Tech, Computer Science – IIT Kharagpur (2016)
-                </Typography>
-              </li>
-              <li>
-                <Typography variant="body1">
-                  B.Tech, Electronics – IIT BHU (2014)
-                </Typography>
-              </li>
-            </ul>
-          </Typography>
-        </Typography>
-
-        <Stack spacing={2} direction="row">
-          <Button
-            variant="outlined"
-            color="inherit"
-            startIcon={<RssFeed />}
-            href="https://medium.com/@mchouhanofficial"
+    <Container maxWidth="lg" sx={{ pt: 8, pb: 8 }}>
+      {/* Hero Section */}
+      <Grid container spacing={6} alignItems="center" sx={{ mb: 12 }}>
+        <Grid item xs={12} md={5} order={{ xs: 1, md: 2 }}>
+          <Box 
+            sx={{ 
+              position: 'relative',
+              '&::before': {
+                content: '""',
+                position: 'absolute',
+                top: 20,
+                left: 20,
+                right: -20,
+                bottom: -20,
+                border: '2px solid #000',
+                zIndex: 0,
+                borderRadius: '50% 50% 0 0'
+              }
+            }}
           >
-            {" "}
-            Medium{" "}
-          </Button>
-          <Button
-            variant="outlined"
-            color="inherit"
-            startIcon={<LinkedIn />}
-            href="https://www.linkedin.com/in/mchouhanofficial/"
-          >
-            {" "}
-            LinkedIn{" "}
-          </Button>
-        </Stack>
+            <Avatar
+              alt="Mahendra Chouhan"
+              src="/logo.jpg"
+              sx={{ 
+                width: '100%', 
+                height: 'auto', 
+                aspectRatio: '1/1',
+                borderRadius: '50% 50% 0 0',
+                border: '1px solid #000',
+                position: 'relative',
+                zIndex: 1,
+                bgcolor: '#f5f5f5'
+              }}
+            />
+          </Box>
+        </Grid>
+        
+        <Grid item xs={12} md={7} order={{ xs: 2, md: 1 }}>
+          <Typography variant="h6" sx={{ mb: 2, color: '#3d5afe' }}>
+            Senior Software Engineer
+          </Typography>
+          <Typography variant="h1" gutterBottom sx={{ mb: 3 }}>
+            Architecting <br/>
+            <span className="text-gradient">Digital Scale.</span>
+          </Typography>
+          <Typography variant="body1" paragraph sx={{ mb: 4, maxWidth: 600 }}>
+            My programming journey began with a simple snake game in a school lab. 
+            That spark became an obsession with solving real-world problems through code. 
+            Today, with <b>9+ years of experience</b> at tech giants like <b>Google</b> and <b>Atlassian</b>, 
+            I bridge the gap between complex backend architecture and seamless frontend experiences.
+          </Typography>
+
+          <Box sx={{ mb: 4, display: 'flex', flexWrap: 'wrap' }}>
+            {['Kotlin', 'Java', 'TypeScript', 'React', 'Node.js', 'AWS', 'DynamoDB', 'Spanner'].map(skill => (
+              <TechChip key={skill} label={skill} />
+            ))}
+          </Box>
+          
+          <Stack spacing={2} direction="row">
+            <Button 
+              variant="contained" 
+              color="primary" 
+              disableElevation
+              endIcon={<ArrowForward />}
+              href="mailto:mchouhanofficial@gmail.com"
+            >
+              Get in touch
+            </Button>
+            <Button 
+              variant="outlined" 
+              startIcon={<LinkedIn />}
+              href="https://www.linkedin.com/in/mchouhanofficial/"
+            >
+              LinkedIn
+            </Button>
+            <Button 
+              variant="text" 
+              startIcon={<Article />}
+              href="https://medium.com/@mchouhanofficial"
+            >
+              Writings
+            </Button>
+          </Stack>
+        </Grid>
       </Grid>
-    </Grid>
+
+      {/* Education */}
+      <Grid container spacing={6} sx={{ mb: 10 }}>
+        <Grid item xs={12} md={4}>
+          <Typography variant="h2" gutterBottom>
+            Education
+          </Typography>
+        </Grid>
+        <Grid item xs={12} md={8}>
+          <ExperienceItem 
+            company="IIT Kharagpur"
+            role="M.Tech, Computer Science"
+            duration="2016"
+            description="Specialized in Computer Science and Engineering."
+          />
+          <ExperienceItem 
+            company="IIT BHU"
+            role="B.Tech, Electronics"
+            duration="2014"
+            description="Bachelor of Technology in Electronics Engineering."
+          />
+        </Grid>
+      </Grid>
+
+      <Divider sx={{ mb: 10 }} />
+
+      {/* Experience Section */}
+      <Grid container spacing={6} sx={{ mb: 12 }}>
+        <Grid item xs={12} md={4}>
+          <Typography variant="h2" gutterBottom>
+            Career<br/>Path
+          </Typography>
+        </Grid>
+        <Grid item xs={12} md={8}>
+          <ExperienceItem 
+            company="Atlassian"
+            role="Senior Software Engineer"
+            duration="1.5+ years"
+            description="Focusing on building scalable web applications and enhancing user experiences for millions of users."
+          />
+          <ExperienceItem 
+            company="Google"
+            role="Software Engineer"
+            duration="4+ years"
+            description="Contributed and maintained gCMS, a content management system for Google Store e-commerce business."
+          />
+          <ExperienceItem 
+            company="Moonfrog Labs"
+            role="Full Stack Engineer"
+            duration="1.5 years"
+            description="Enhanced Teen Patti Gold, a real-time card game with over 3M daily users."
+          />
+          <ExperienceItem 
+            company="Ola Cabs"
+            role="Software Engineer"
+            duration="1 Year"
+            description="Worked on Ola Play, focusing on scalability and performance optimization."
+          />
+          <ExperienceItem 
+            company="AppDynamics (Cisco)"
+            role="Software Engineer"
+            duration="1 Year"
+            description="Contributed to DbMon, a database monitoring product by AppDynamics."
+          />
+        </Grid>
+      </Grid>
+
+
+    </Container>
   );
 };
 
