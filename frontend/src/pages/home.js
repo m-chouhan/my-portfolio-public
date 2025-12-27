@@ -34,7 +34,7 @@ const ExperienceItem = ({ company, role, duration, description, link }) => (
     <Typography variant="subtitle2" sx={{ color: '#666', mb: 1, fontStyle: 'italic' }}>
       {role} • {duration}
     </Typography>
-    <Typography variant="body2" color="text.secondary">
+    <Typography variant="body2" color="text.secondary" component="div">
       {description}
     </Typography>
   </Box>
@@ -81,21 +81,21 @@ const Home = () => {
         
         <Grid item xs={12} md={7} order={{ xs: 2, md: 1 }}>
           <Typography variant="h6" sx={{ mb: 2, color: '#3d5afe' }}>
-            Senior Software Engineer
+            Senior Software Engineer, Atlassian
           </Typography>
           <Typography variant="h1" gutterBottom sx={{ mb: 3 }}>
-            Architecting <br/>
-            <span className="text-gradient">Digital Scale.</span>
+            Engineering <br/>
+            <span className="text-gradient">for Scale.</span>
           </Typography>
           <Typography variant="body1" paragraph sx={{ mb: 4, maxWidth: 600 }}>
             My programming journey began with a simple snake game in a school lab. 
             That spark became an obsession with solving real-world problems through code. 
             Today, with <b>9+ years of experience</b> at tech giants like <b>Google</b> and <b>Atlassian</b>, 
-            I bridge the gap between complex backend architecture and seamless frontend experiences.
+            I try to bridge the gap between complex backend architecture and seamless frontend experiences.
           </Typography>
 
           <Box sx={{ mb: 4, display: 'flex', flexWrap: 'wrap' }}>
-            {['Kotlin', 'Java', 'TypeScript', 'React', 'Node.js', 'AWS', 'DynamoDB', 'Spanner'].map(skill => (
+            {['System Design', 'Cloud Architecture', 'Game Development', 'Full Stack'].map(skill => (
               <TechChip key={skill} label={skill} />
             ))}
           </Box>
@@ -163,9 +163,9 @@ const Home = () => {
         <Grid item xs={12} md={8}>
           <ExperienceItem 
             company="Atlassian"
-            role="Senior Software Engineer"
-            duration="1.5+ years"
-            description="Focusing on building scalable web applications and enhancing user experiences for millions of users."
+            role="Senior Software Engineer (P50) | Backend"
+            duration="June 2024 – Present"
+            description="Leading AI agent development for Jira Service Management handling 10k daily queries, improving resolution rates by 5% through enterprise integrations."
           />
           <ExperienceItem 
             company="Google"
