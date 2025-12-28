@@ -54,14 +54,16 @@ The frontend application will run on http://localhost:3000.
 
 ## Building for Production
 
-To build the frontend for production:
+To build and run the application in production mode using Docker Compose:
 
 ```bash
-cd frontend
-npm run build
+docker-compose -f docker-compose.prod.yml up --build -d
 ```
 
-This will generate a `build` folder with static assets and also generate a sitemap.
+This will:
+1. Build the production images for frontend and backend
+2. Start the containers in detached mode
+3. Expose the frontend on port 80 and backend on port 5000 (or configured ports)
 
 ## Deployment
 
